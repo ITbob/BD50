@@ -39,7 +39,7 @@
 	, xdbadmin
 	to G17_FLIGHT with admin option;
 
-	grant execute on dbms_epg to G17_FLIGHT with grant option;
+	grant connect, resource to G17_FLIGHT;
 
 #### 5. Verification de la connection
 
