@@ -35,10 +35,10 @@
 	, xdbadmin
 	to G17_FLIGHT with admin option;
 
-grant execute on dbms_epg to G17_FLIGHT with grant option;
+	grant execute on dbms_epg to G17_FLIGHT with grant option;
 
 ## 5. Verification de la connection
 
-connect G17_FLIGHT/G17_FLIGHT	
+	connect G17_FLIGHT/G17_FLIGHT	
 
-	create tablespace FLIGHT_DATA
+
