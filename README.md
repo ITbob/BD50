@@ -1,4 +1,4 @@
-# Projet BD50 COmpagnie aérienne
+# Projet BD50 Compagnie Aérienne
 
 ## Se connecter au projet
 
