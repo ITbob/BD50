@@ -1,12 +1,12 @@
 # Se connecter au projet
 
-connect G17_FLIGHT/G17_FLIGHT
+	connect G17_FLIGHT/G17_FLIGHT
 
 # Creation du compte Oracle
 
 ## 1. Se connecter en temp que système manager
 
-connect system/manager
+	connect system/manager
 
 ## 2. Creer les tablespace necessaire pour le projet
 
