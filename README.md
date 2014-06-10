@@ -8,24 +8,37 @@ connect G17_FLIGHT/G17_FLIGHT
 
 connect system/manager
 
-## 2. Creer un compte oracle pour le projet
+## 2. Creer les tablespace necessaire pour le projet
 
-Create user G17_FLIGHT
-Identified by G17_FLIGHT
-default tablespace USERS
-temporary tablespace TEMP;
+	create tablespace FLIGHT_DATA
+	datafile'F:\BD51\projet\FLIGHT_DATA.dbf'
+	SIZE 5M REUSE
+	EXTENT MANAGEMENT LOCAL SEGMENT
+	SPACE MANAGEMENT AUTO;
 
-## 3. Definir les droits
+	create temporary tablespace FLIGHT_TEMP
+	tempfile 'E:\ORACLE\oradata\prod\FLIGHT_TEMP.dbf'
+	size 5M
+	EXTENT MANAGEMENT LOCAL;
 
-Grant connect, resource, plustrace
-, create view, create synonym, create user, alter user
-, xdbadmin
-to G17_FLIGHT with admin option;
+## 3. Creer un compte oracle pour le projet
+
+	Create user G17_FLIGHT 
+	Identified by G17_FLIGHT 
+	default tablespace FLIGHT_DATA
+	temporary tablespace FLIGHT_TEMP;
+
+## 4. Definir les droits
+
+	Grant connect, resource, plustrace
+	, create view, create synonym, create user, alter user
+	, xdbadmin
+	to G17_FLIGHT with admin option;
 
 grant execute on dbms_epg to G17_FLIGHT with grant option;
 
-## 4. Verification de la connection
+## 5. Verification de la connection
 
 connect G17_FLIGHT/G17_FLIGHT	
 
-	
+	create tablespace FLIGHT_DATA
