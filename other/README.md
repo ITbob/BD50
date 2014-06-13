@@ -16,7 +16,26 @@ Connecté.
 
 Connecté.
 
-#### 2. Creer les tablespace necessaire pour le projet
+#### 2 importer config_xmldb
+
+	alter system set local_listener="(ADDRESS=(PROTOCOL=TCP)(HOST=XPSQL)(PORT=1521))" scope = both;
+
+Système modifié.
+	
+	exec dbms_xdb.setftpport(2100);
+
+Procédure PL/SQL terminée avec succès.
+	
+	exec dbms_xdb.sethttpport(8080);
+
+Procédure PL/SQL terminée avec succès.
+	
+	alter system register;
+
+Système modifié.
+
+
+#### 3. Creer les tablespace necessaire pour le projet
 
 creer les ficher E:\BD50\projet\FLIGHT_DATA.dbf
 
@@ -35,7 +54,7 @@ tablespace créé
 
 tablespace créé
 
-#### 3. Creer un compte oracle pour le projet
+#### 4. Creer un compte oracle pour le projet
 
 	Create user G17_FLIGHT 
 	Identified by G17_FLIGHT 
@@ -44,7 +63,7 @@ tablespace créé
 
 Utilisateur créé.
 
-#### 4. Definir les droits
+#### 5. Definir les droits
 
 	Grant connect, resource, plustrace
 	, create view, create synonym, create user, alter user
@@ -53,12 +72,16 @@ Utilisateur créé.
 
 Autorisation de privilèges (GRANT) acceptée.
 
+	grant xdbadmin to G17_FLIGHT
+
+Autorisation de privilèges (GRANT) acceptée.
+
 	grant connect, resource to G17_FLIGHT;
 
 Autorisation de privilèges (GRANT) acceptée.
 
 
-#### 5. Verification de la connection
+#### 6. Verification de la connection
 
 	connect G17_FLIGHT/G17_FLIGHT
 
@@ -66,4 +89,18 @@ Connecté.
 
 ### Importer les table
 
-	@...\COMPAGNIE_AERIENNE.SQL
+	@...\FLIGHT.SQL
+
+### creation du dad
+
+	@...\DB\dad_create.sql
+
+Procédure PL/SQL terminée avec succès.
+
+Procédure PL/SQL terminèe avec succès.
+
+	@...\DB\dad_check.sql
+
+Procédure créée.
+
+aller sur le lien http://xpsql:8080/flight/home pour tester le bon fonctionement du système
