@@ -1,0 +1,17 @@
+delete from CONCERNER;
+delete from ASSIGNER_A;
+delete from PLACE;
+delete from employe;
+delete from CLIENT;
+delete from RESERVATION;
+delete from BILLET;
+delete from PASSAGER;
+delete from vol_reel;
+delete from CLASSE;
+delete from SPECIALITE;
+delete from equipage;
+delete from AVION;
+delete from VOL_COMM;
+delete from TERMINAL;
+delete from AEROPORT;
+commit;
